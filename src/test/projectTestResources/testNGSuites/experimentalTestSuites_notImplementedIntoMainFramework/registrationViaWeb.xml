@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd"> <!-- Ensure that there is an 's' after 'http', otherwise an ssl error will occur-->
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="com.qa.testNG.Listeners"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="mgoNativeRegression">
+        <classes>
+            <class name="com.qa.cucumberFiles.android.registration.testRunnerFiles.RegistrationTestRunner"/> <!--//flow extends up to the upload, add in validation by going into native app and logging in with new account (using a pre existing method in home page)-->
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,10 @@
+For if there is something wrong with core for sendMoney flows, which is very frequent after deployments, and so non-send money flows can still be run without issue
+
+android -->
+            <class name="com.qa.cucumberFiles.android.referralWhatsNewBB.testRunnerFiles.ReferralWhatsNewBBTestRunner"/>
+            <class name="com.qa.cucumberFiles.android.registrationViaApp.testRunnerFiles.RegistrationViaAppTestRunner"/>
+            <class name="com.qa.cucumberFiles.android.profilePageModifyCard.testRunnerFiles.ProfilePageModifyCardTestRunner"/>
+            <class name="com.qa.cucumberFiles.android.homePageAddEditDelete.testRunnerFiles.homePageAddEditDeleteTestRunner"/>
+
+
+iOS -->

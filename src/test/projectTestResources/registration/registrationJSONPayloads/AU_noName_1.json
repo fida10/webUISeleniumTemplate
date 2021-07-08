@@ -1,0 +1,33 @@
+{
+  "authenticationInfo": {
+    "userName": "replaceWithGenerated",
+    "password": "testtest1"
+  },
+  "personalInfo": {
+    "countryDialingCode": 61,
+    "operationalSMSOptIn": true,
+    "phoneCountryISO": "AUS",
+    "phoneNumber": "replaceWithGenerated",
+    "promoEmail": false,
+    "promoSMSOptIn": false,
+    "firstName": "replaceWithGenerated",
+    "middleName": "",
+    "lastName": "replaceWithGenerated",
+    "secondLastName": "",
+    "dateOfBirth": "31/12/1981",
+    "countryOfBirth": "replaceWithEMTProfileGenerated",
+    "citizenship": null,
+    "registrationIdInfo": {},
+    "email": "replaceWithGenerated",
+    "plusRegistrationRequired": false
+  },
+  "address": {
+    "addressLine1": "replaceWithGenerated",
+    "addressLine2": null,
+    "city": "replaceWithGenerated",
+    "state": "AU-VIC",
+    "postalCode": "3182",
+    "country": "AUS"
+  },
+  "mgoSessionId": "replaceWithGenerated"
+}

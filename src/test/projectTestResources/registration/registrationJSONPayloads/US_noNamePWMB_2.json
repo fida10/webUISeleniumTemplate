@@ -1,0 +1,34 @@
+{
+  "mgoSessionId":"replaceWithGenerated",
+  "authenticationInfo":{
+    "userName":"replaceWithGenerated",
+    "password":"testtest1",
+    "rsaDevicePrint":"rsadeviceprint"
+  },
+  "personalInfo":{
+    "dateOfBirth":"12/31/1981",
+    "country":"USA",
+    "email":"replaceWithGenerated",
+    "firstName":"John",
+    "middleName":"",
+    "lastName":"Smith",
+    "secondLastName":"",
+    "operationalSMSOptIn":false,
+    "phoneCountryISO":"USA",
+    "countryDialingCode":1,
+    "phoneNumber":"replaceWithGenerated",
+    "phoneType":"MOBILE",
+    "promoSMSOptIn":false,
+    "promoEmail":false
+  },
+  "address":{
+    "addressId":0,
+    "addressLine1":"replaceWithGenerated",
+    "addressLine2":"",
+    "city":"replaceWithGenerated",
+    "state":"US-OH",
+    "postalCode":"43952",
+    "homeAddress":true,
+    "country":"USA"
+  }
+}

@@ -1,0 +1,10 @@
+{"documentType": "Passport",
+  "uploadReason": "KYC",
+  "mgoSessionId": "randomUUIDGeneratedHere",
+  "images":
+  [
+    {"image": "imageGoesHere",
+      "imageType": "PassportPicturePage"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "mgoSessionId":"replaceWithGenerated",
+  "authenticationInfo":{
+    "userName":"replaceWithGenerated",
+    "password":"testtest1",
+    "rsaDevicePrint":"rsadeviceprint"
+  },
+  "personalInfo":{
+    "dateOfBirth":"31.12.1981",
+    "countryOfBirth":"replaceWithEMTProfileGenerated",
+    "country":"DE",
+    "email":"replaceWithGenerated",
+    "firstName":"replaceWithGenerated",
+    "middleName":"",
+    "lastName":"replaceWithGenerated",
+    "secondLastName":"",
+    "operationalSMSOptIn":false,
+    "phoneCountryISO":"DEU",
+    "countryDialingCode":49,
+    "phoneNumber":"replaceWithGenerated",
+    "phoneType":"MOBILE",
+    "promoSMSOptIn":false,
+    "promoEmail":false
+  },
+  "address":{
+    "addressId":0,
+    "addressLine1":"replaceWithGenerated",
+    "addressLine2":"",
+    "city":"replaceWithGenerated",
+    "postalCode":"68163",
+    "homeAddress":true,
+    "country":"DEU"
+  }
+}

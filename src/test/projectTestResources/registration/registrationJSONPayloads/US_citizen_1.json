@@ -1,0 +1,34 @@
+{
+  "mgoSessionId":"replaceWithGenerated",
+  "authenticationInfo":{
+    "userName":"replaceWithGenerated",
+    "password":"testtest1",
+    "rsaDevicePrint":"rsadeviceprint"
+  },
+  "personalInfo":{
+    "dateOfBirth":"06/07/1984",
+    "country":"USA",
+    "email":"replaceWithGenerated",
+    "firstName":"Jane",
+    "middleName":"",
+    "lastName":"Citizen",
+    "secondLastName":"",
+    "operationalSMSOptIn":false,
+    "phoneCountryISO":"USA",
+    "countryDialingCode":1,
+    "phoneNumber":"replaceWithGenerated",
+    "phoneType":"MOBILE",
+    "promoSMSOptIn":false,
+    "promoEmail":false
+  },
+  "address":{
+    "addressId":0,
+    "addressLine1":"1945 Blueseas Drive",
+    "addressLine2":"",
+    "city":"Biloxi",
+    "state":"US-MS",
+    "postalCode":"39531",
+    "homeAddress":true,
+    "country":"USA"
+  }
+}

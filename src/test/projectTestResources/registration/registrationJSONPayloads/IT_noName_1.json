@@ -1,0 +1,40 @@
+{
+  "mgoSessionId":"replaceWithGenerated",
+  "authenticationInfo":{
+    "userName":"replaceWithGenerated",
+    "password":"testtest1",
+    "rsaDevicePrint":"rsadeviceprint"
+  },
+  "personalInfo":{
+    "dateOfBirth":"31/12/1981",
+    "countryOfBirth":"replaceWithEMTProfileGenerated",
+    "registrationIdInfo": {
+      "registrationIdNumber": "MPLSAA81P65Z404M",
+      "registrationIdType": "CF"
+    },
+    "country":"IT",
+    "email":"replaceWithGenerated",
+    "firstName":"replaceWithGenerated",
+    "middleName":"",
+    "lastName":"replaceWithGenerated",
+    "secondLastName":"",
+    "operationalSMSOptIn":false,
+    "registrationIdNumber": "MPLSAA81P65Z404M",
+    "phoneCountryISO":"ITA",
+    "countryDialingCode":39,
+    "phoneNumber":"replaceWithGenerated",
+    "phoneType":"MOBILE",
+    "promoSMSOptIn":false,
+    "promoEmail":false
+  },
+  "address":{
+    "addressId":0,
+    "addressLine1":"replaceWithGenerated",
+    "addressLine2":"",
+    "city":"replaceWithGenerated",
+    "state":"IT-LC",
+    "postalCode":"23880",
+    "homeAddress":true,
+    "country":"ITA"
+  }
+}

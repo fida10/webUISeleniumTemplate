@@ -1,0 +1,482 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>mgoNativeRegrFrame</groupId>
+  <artifactId>mgoNativeRegression</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>mgoNativeRegFrame</name>
+  <url>http://maven.apache.org</url>
+
+  <profiles>
+    <profile>
+      <id>IOS_SingleRunConfig</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.8.1</version>
+              <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.0.0-M5</version>
+              <configuration>
+                <systemPropertyVariables>
+                  <platform>IOS</platform>
+                  <runningIOSSimulator>true</runningIOSSimulator>
+                  <runningBrowserStack>false</runningBrowserStack>
+                  <ffmpegVidRecordingActive>false</ffmpegVidRecordingActive>
+                </systemPropertyVariables>
+                <suiteXmlFiles>
+                  <suiteXmlFile>src/test/projectTestResources/testNGSuites/allIOSTests.xml</suiteXmlFile>
+                </suiteXmlFiles>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile><!--IOS_SingleRunConfig-->
+    <!--Single runner profile. Use the command "mvn clean test -PIOS_SingleRunConfig -Denv=%s -Dcountry=%s" to run individual environment and country. To run all test cases for all environments and countries available for iOS in single run mode, see IOSAllTestsUnifiedSingleRunner class, run with "java src/main/java/com/qa/utilFiles/testSuiteMultiRunners/IOS/IOSAllTestsUnifiedSingleRunner.java" -->
+
+    <profile>
+      <id>IOS_ParallelRunConfig</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.8.1</version>
+              <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.0.0-M5</version>
+              <configuration>
+                <systemPropertyVariables>
+                  <platform>IOS</platform>
+                  <runningIOSSimulator>true</runningIOSSimulator>
+                  <runningBrowserStack>false</runningBrowserStack>
+                  <ffmpegVidRecordingActive>false</ffmpegVidRecordingActive>
+                </systemPropertyVariables>
+                <suiteXmlFiles>
+                  <suiteXmlFile>src/test/projectTestResources/testNGSuites/allIOSTests.xml</suiteXmlFile>
+                </suiteXmlFiles>
+
+                <properties>
+                  <property>
+                    <name>parallel</name>
+                    <value>classes</value>
+                  </property>
+                  <property>
+                    <name>threadCount</name>
+                    <value>2</value> <!-- Adjust for number of parallel threads; ensure that testNG "thread count" is adjusted as well -->
+                  </property>
+                </properties>
+
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile><!--IOS_ParallelRunConfig-->
+    <!--Parallel runner profile. Use the command "mvn clean test -PIOS_ParallelRunConfig -Denv=%s -Dcountry=%s" to run individual environment and country. To run all test cases for all environments and countries available for iOS in parallel mode, see IOSAllTestsUnifiedParallelRunner class, run with "java src/main/java/com/qa/utilFiles/testSuiteMultiRunners/IOS/IOSAllTestsUnifiedParallelRunner.java" -->
+
+    <profile>
+      <id>android_SingleRunConfig</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.8.1</version>
+              <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.0.0-M5</version>
+              <configuration>
+                <systemPropertyVariables>
+                  <platform>android</platform>
+                  <runningAndroidEmulator>true</runningAndroidEmulator>
+                  <runningBrowserStack>false</runningBrowserStack>
+                  <ffmpegVidRecordingActive>false</ffmpegVidRecordingActive>
+                </systemPropertyVariables>
+                <suiteXmlFiles>
+                  <suiteXmlFile>src/test/projectTestResources/testNGSuites/allAndroidTests.xml</suiteXmlFile>
+                </suiteXmlFiles>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile><!--android_SingleRunConfig-->
+    <!--Android Single Runner profile. Use the command "mvn clean test -Pandroid_SingleRunConfig -Denv=%s -Dcountry=%s" to run individual environment and country. To run all test cases for all environments and countries available for Android in single mode, see AndroidAllTestsUnifiedSingleRunner class, run with "java src/main/java/com/qa/utilFiles/testSuiteMultiRunners/android/AndroidAllTestsUnifiedSingleRunner.java
+    -->
+
+    <profile>
+      <id>android_ParallelRunConfig</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.8.1</version>
+              <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.0.0-M5</version>
+              <configuration>
+                <systemPropertyVariables>
+                  <platform>android</platform>
+                  <runningAndroidEmulator>true</runningAndroidEmulator>
+                  <runningBrowserStack>false</runningBrowserStack>
+                  <ffmpegVidRecordingActive>false</ffmpegVidRecordingActive>
+                </systemPropertyVariables>
+                <suiteXmlFiles>
+                  <suiteXmlFile>src/test/projectTestResources/testNGSuites/allAndroidTests.xml</suiteXmlFile>
+                </suiteXmlFiles>
+
+                <properties>
+                  <property>
+                    <name>parallel</name>
+                    <value>classes</value>
+                  </property>
+                  <property>
+                    <name>threadCount</name>
+                    <value>1</value> <!-- Adjust for number of parallel threads; ensure that testNG "thread count" is adjusted as well --> <!--Left for one for now until emulator generation for android is implemented-->
+                  </property>
+                </properties>
+
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile><!--android_ParallelRunConfig-->
+    <!--Android Parallel Runner profile. Use the command "mvn clean test -Pandroid_ParallelRunConfig -Denv=%s -Dcountry=%s" to run individual environment and country. To run all test cases for all environments and countries available for Android in parallel mode, see AndroidAllTestsUnifiedParallelRunner class, run with "java src/main/java/com/qa/utilFiles/testSuiteMultiRunners/android/AndroidAllTestsUnifiedParallelRunner.java
+    -->
+
+    <!--PREFERRED MODE OF EXECUTION IS BROWSERSTACK, SEE BELOW PROFILES.-->
+
+    <profile>
+      <id>IOS_BrowserStackParallelRunConfig</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.8.1</version>
+              <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.0.0-M5</version>
+              <configuration>
+                <systemPropertyVariables>
+                  <platform>IOS</platform>
+                  <runningIOSSimulator>false</runningIOSSimulator>
+                  <runningBrowserStack>true</runningBrowserStack>
+                  <ffmpegVidRecordingActive>false</ffmpegVidRecordingActive>
+                  <isRunningInParallel>true</isRunningInParallel>
+                </systemPropertyVariables>
+                <suiteXmlFiles>
+                  <suiteXmlFile>src/test/projectTestResources/testNGSuites/allIOSTests.xml</suiteXmlFile>
+                </suiteXmlFiles>
+
+                <properties>
+                  <property>
+                    <name>parallel</name>
+                    <value>classes</value>
+                  </property>
+                  <property>
+                    <name>threadCount</name>
+                    <value>2</value> <!-- Adjust for number of parallel threads; ensure that testNG "thread count" is adjusted as well -->
+                  </property>
+                </properties>
+
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile><!--IOS_BrowserStackParallelRunConfig-->
+    <!--Parallel runner profile. Use the command "mvn clean test -PIOS_BrowserStackParallelRunConfig -Denv=%s -Dcountry=%s" to run individual environment and country. Optional Params: -DmsAppCenterIOSBuildIDToUse (default is "latest"), -DbrowserStackProjSprintName (default is "NativeQATests_NoSprint", regular sprint format is "NativeAppQARegression_Sprint_" and add sprint number to the end), -DtestRailActive (default is false), -DusingTestPlan (default is false), -DiosDeviceOSForDescCap (specify ios OS here), -DbrowserStackIOSDevice (specify browserstack iOS device here). -->
+
+    <profile>
+      <id>android_BrowserStackParallelRunConfig</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.8.1</version>
+              <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.0.0-M5</version>
+              <configuration>
+                <systemPropertyVariables>
+                  <platform>android</platform>
+                  <runningAndroidEmulator>false</runningAndroidEmulator>
+                  <runningBrowserStack>true</runningBrowserStack>
+                  <ffmpegVidRecordingActive>false</ffmpegVidRecordingActive>
+                  <isRunningInParallel>true</isRunningInParallel>
+                </systemPropertyVariables>
+                <suiteXmlFiles>
+                  <suiteXmlFile>src/test/projectTestResources/testNGSuites/allAndroidTests.xml</suiteXmlFile>
+                </suiteXmlFiles>
+
+                <properties>
+                  <property>
+                    <name>parallel</name>
+                    <value>classes</value>
+                  </property>
+                  <property>
+                    <name>threadCount</name>
+                    <value>2</value> <!-- Adjust for number of parallel threads; ensure that testNG "thread count" is adjusted as well -->
+                  </property>
+                </properties>
+
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile><!--android_BrowserStackParallelRunConfig-->
+    <!--Android Parallel Runner profile. Use the command "mvn clean test -Pandroid_BrowserStackParallelRunConfig -Denv=%s -Dcountry=%s" to run individual environment and country. Optional Params: -DmsAppCenterAndroidBuildIDToUse (default is "latest"), -DbrowserStackProjSprintName (default is "NativeQATests_NoSprint", regular sprint format is "NativeAppQARegression_Sprint_" and add sprint number to the end), -DtestRailActive (default is false), -DusingTestPlan (default is false), -DandroidDeviceOSForDescCap (specify ANDROID OS here), -DbrowserStackAndroidDevice (specify browserstack ANDROID device here).
+    -->
+
+    <profile>
+      <id>rerun_BrowserStack</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.8.1</version>
+              <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.0.0-M5</version>
+              <configuration>
+                <systemPropertyVariables>
+                  <runningAndroidEmulator>false</runningAndroidEmulator>
+                  <runningIOSSimulator>false</runningIOSSimulator>
+                  <runningBrowserStack>true</runningBrowserStack>
+                  <ffmpegVidRecordingActive>false</ffmpegVidRecordingActive>
+                  <isRunningInParallel>true</isRunningInParallel>
+                  <rerun>true</rerun>
+                </systemPropertyVariables>
+                <suiteXmlFiles>
+                  <suiteXmlFile>target/surefire-reports/testng-failed.xml</suiteXmlFile>
+                </suiteXmlFiles>
+
+                <properties>
+                  <property>
+                    <name>parallel</name>
+                    <value>classes</value>
+                  </property>
+                  <property>
+                    <name>threadCount</name>
+                    <value>2</value> <!-- Adjust for number of parallel threads; ensure that testNG "thread count" is adjusted as well -->
+                  </property>
+<!--PARALLEL RUNNING OF RERUN TEST CASES REMAINS ENABLED, HOWEVER, UNABLE TO CONTROL THE RERUN TESTNG XML GENERATED BY SUREFIRE, WHICH DEFAULTS TO 5 THREADS (WHILE BROWSERSTACK ONLY CURRENTLY SUPPORTS 2 THREADS). If test cases are continuously timing out, will be disabled.-->
+                </properties>
+
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile><!--rerun_BrowserStack-->
+    <!--Rerun for failed test cases profile. Use the command "mvn test -Prerun_BrowserStack -Dplatform=%s -Denv=%s -Dcountry=%s" to specify platform, and run individual environment and country. Optional Params: -DmsAppCenterAndroidBuildIDToUse (default is "latest"), -DbrowserStackProjSprintName (default is "NativeQATests_NoSprint", regular sprint format is "NativeAppQARegression_ReRun_Sprint_" and add sprint number to the end), -DtestRailActive (default is false), -DusingTestPlan (default is false), ANDROID OS AND DEVICE: -DandroidDeviceOSForDescCap (specify ANDROID OS here), -DbrowserStackAndroidDevice (specify browserstack ANDROID device here), IOS OS AND DEVICE: -DiosDeviceOSForDescCap (specify ios OS here), -DbrowserStackIOSDevice (specify browserstack iOS device here). -->
+
+  </profiles>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8.0_281</maven.compiler.source>
+    <maven.compiler.target>1.8.0_281</maven.compiler.target>
+  </properties>
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>3.141.59</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.8.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+    <dependency>
+      <groupId>io.appium</groupId>
+      <artifactId>java-client</artifactId>
+      <version>7.3.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>7.3.0</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>4.2.3</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>6.10.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>6.10.0</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-testng</artifactId>
+      <version>6.10.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-picocontainer</artifactId>
+      <version>6.10.0</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.30</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.30</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>4.1.2</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>4.1.2</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.shared/maven-invoker -->
+    <dependency>
+      <groupId>org.apache.maven.shared</groupId>
+      <artifactId>maven-invoker</artifactId>
+      <version>3.0.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.eclipse.jgit/org.eclipse.jgit -->
+    <dependency>
+      <groupId>org.eclipse.jgit</groupId>
+      <artifactId>org.eclipse.jgit</artifactId>
+      <version>5.9.0.202009080501-r</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+    <dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>5.0.4</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>4.3.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.6</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.1</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M5</version>
+          <configuration>
+            <systemPropertyVariables>
+
+            </systemPropertyVariables>
+            <suiteXmlFiles>
+              <suiteXmlFile></suiteXmlFile> <!--Default suite xml goes here, currently running suite using profiles so leaving empty-->
+            </suiteXmlFiles>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

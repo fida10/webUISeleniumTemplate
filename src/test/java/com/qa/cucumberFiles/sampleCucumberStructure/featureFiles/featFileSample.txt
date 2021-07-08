@@ -1,0 +1,10 @@
+Feature: FeatureToExecute
+
+    Scenario Outline: NameOfScenario_MustBeExactMatchOnExcelForAppend
+        Given A step with param "<paramOne>"
+        When A step happens with param "<paramTwo>"
+        Then Another step happens with param "<paramThree>"
+
+    Examples:
+        |paramOne|paramTwo|paramThree|
+

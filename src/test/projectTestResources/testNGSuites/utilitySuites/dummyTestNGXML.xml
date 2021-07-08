@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd"> <!-- Ensure that there is an 's' after 'http', otherwise an ssl error will occur-->
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="com.qa.testNG.Listeners"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="mgoNativeRegression">
+        <classes>
+        </classes>
+    </test>
+</suite>

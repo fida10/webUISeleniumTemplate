@@ -1,0 +1,3 @@
+Feature: Common steps
+
+  #Note that this file is only to prototype the various common step defs defined in CommonStepDefs class. No actual tests written here

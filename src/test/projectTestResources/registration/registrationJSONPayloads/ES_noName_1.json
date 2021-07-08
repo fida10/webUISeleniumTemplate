@@ -1,0 +1,39 @@
+{
+  "mgoSessionId":"replaceWithGenerated",
+  "authenticationInfo":{
+    "userName":"replaceWithGenerated",
+    "password":"testtest1",
+    "rsaDevicePrint":"rsadeviceprint"
+  },
+  "personalInfo":{
+    "dateOfBirth":"31/12/1981",
+    "countryOfBirth":"replaceWithEMTProfileGenerated",
+    "registrationIdInfo": {
+      "registrationIdNumber": "replaceWithGenerated",
+      "registrationIdType": "NIF"
+    },
+    "country":"ES",
+    "email":"replaceWithGenerated",
+    "firstName":"replaceWithGenerated",
+    "middleName":"",
+    "lastName":"replaceWithGenerated",
+    "secondLastName":"",
+    "operationalSMSOptIn":false,
+    "phoneCountryISO":"ESP",
+    "countryDialingCode":34,
+    "phoneNumber":"replaceWithGenerated",
+    "phoneType":"MOBILE",
+    "promoSMSOptIn":false,
+    "promoEmail":false
+  },
+  "address":{
+    "addressId":0,
+    "addressLine1":"replaceWithGenerated",
+    "addressLine2":"",
+    "city":"replaceWithGenerated",
+    "state":"ES-O",
+    "postalCode":"33865",
+    "homeAddress":true,
+    "country":"ESP"
+  }
+}

@@ -1,0 +1,57 @@
+//sample GET
+		extentReportGenerator.addInfoMessage(currentTest, "Replace text here with intro message to go on extent report for this API/method");
+		Response response = null;
+		try {
+			response =
+					given()
+							.relaxedHTTPSValidation()
+							.header() //headers go here
+					.when()
+							.get(new URL()); //url for get request
+					.then().extract().response();
+		} catch (MalformedURLException e) {
+			extentReportGenerator.addWarningMessage(currentTest, "Malformed exception thrown while <replace text here>. Stacktrace: " + Arrays.toString(e.getStackTrace())); //extentReports
+		}
+
+		String jsonAppResponse = null;
+		if(response != null && response.getStatusCode() == 200){
+			jsonAppResponse = response.asString();
+		} else {
+			extentReportGenerator.addWarningMessage(currentTest, "Returned null from API when trying to <replace text here>, or status was not 200!");
+			if (response != null && response.getStatusCode() != 200) {
+				extentReportGenerator.addWarningMessage(currentTest, "Non 200 response: " + response.asString());
+			}
+		}
+		assert response != null;
+		return jsonAppResponse;
+	}
+
+//sample POST
+		String postRequestPayload = String.format("{\n" +
+				"  \"sampleParamOne\": \"%s\",\n" +
+				"  \"sampleParamTwo\": \"%s\" \n}", "sampleParamOne", "sampleParamTwo");
+		extentReportGenerator.addInfoMessage(currentTest, "Replace text here with intro message to go on extent report for this API/method, with payload JSON: " + postRequestPayload);
+		Response response = null;
+		try {
+			response =
+					given()
+							.relaxedHTTPSValidation()
+//							.auth()
+//							.preemptive()
+//							.basic("", "") //if auth is needed, else delete
+							.contentType(ContentType.JSON)
+							.body(postRequestPayload)
+							.post(new URL(baseURL + "whatever additions are needed to base url for this request"))
+							.then().extract().response();
+		} catch (MalformedURLException e) {
+			extentReportGenerator.addWarningMessage(currentTest, "Malformed exception thrown while trying to <Insert text here> Stacktrace: " + Arrays.toString(e.getStackTrace())); //extentReports
+		}
+
+		if(response != null && response.getStatusCode() == 200){
+			//response tasks here
+		} else {
+			extentReportGenerator.addWarningMessage(currentTest, "Returned null from <Insert text here>, or status was not 200!");
+			if(response != null && response.getStatusCode() != 200){
+				extentReportGenerator.addWarningMessage(currentTest, "Non 200 response: " + response.asString());
+			}
+		}
